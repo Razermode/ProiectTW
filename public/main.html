@@ -1,0 +1,91 @@
+
+<html>
+
+  <head>
+    <title> Finish Task. </title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js"> </script>
+  </head>
+
+  <body onload="init()" class="notLogged" id="body">
+    <div id="content_container">
+      <div id="finish_task_header">
+        <p class="whenNotLogged"> Finish Task.</p>
+        <p id="welcomeBox" class="whenLogged">Welcome <span>{{name}}</span>!</p>
+      </div>
+
+      <div class="task_input_container">
+        <div id="task_new" class="whenLogged">
+          <input class="input_box" name="title" type="text" placeholder="Start A Task"/>
+          <input class="input_date" name="date" type="date"/>
+          <input class="input_desc" name="description" type="text" placeholder="Short Description Of Task"/>
+          <button class="input_button" onclick="task_add(this.parentNode);">
+            Enter Task <i class="fa fa-arrow-circle-right"></i>
+          </button>
+        </div>
+        <div id="login" class="whenNotLogged">
+          <input class="input_box" name="email" type="text" placeholder="Email"/>
+          <input class="input_desc" name="password" type="password" placeholder="Password"/>
+          <button class="input_button" onclick="login(this.parentNode);">
+            Login <i class="fa fa-arrow-circle-right"></i>
+          </button>    
+        </div>
+      </div>
+      <div class="page-grid">
+          
+      <div class="container_t">
+        <header class="header">Pending Task </header>
+        <div id="pendingTasks">
+        </div>
+      </div>
+      <div class="container_f"  >
+        <header class="header"> Finished </header>
+        <div id="finishedTasks"></div>
+      </div>
+      <footer class="footer"> Your task list. </footer>
+    </div>
+  </div>
+  <div id="templates" style="display:none">
+    <template id="pendingTaskTemplate">
+        <article class="task_data">
+          <h1 class="task_title" contenteditable="false" rel="title">{{title}} </h1>
+          <p class="task_date" contenteditable="false" rel="date"> {{date}} </p>
+          <p class="task_desc" contenteditable="false" rel="description">{{description}}</p>
+        </article>
+        <div class="task_tool">
+          <button class="task_button task_done_button task_display_button" onclick = "task_done('{{id}}');">
+            <i class="fa fa-check"></i>
+          </button>
+          <button class="task_button task_edit_button task_display_button" onclick = "task_edit('{{id}}');">
+            <i class="fa fa-pencil"></i>
+          </button>
+          <button class="task_button task_delete_button task_display_button" onclick = "task_delete('{{id}}');">
+            <i class="fa fa-trash"></i>
+          </button>
+          <button class="task_button task_save_button task_editing_button" onclick = "task_save('{{id}}');">
+            <i class="fa fa-save"></i>
+          </button>
+          <button class="task_button task_cancel_button task_editing_button" onclick = "task_cancel('{{id}}');">
+            <i class="fa fa-close"></i>
+          </button>
+        </div>
+    </template>
+    <template id="finishedTaskTemplate">
+      <article class="task_data">
+        <h1 class="task_title" >{{title}} </h1>
+        <p class="task_date" > {{date}} </p>
+        <p class="task_desc">{{description}}</p>
+      </article>
+      <div class="task_tool">
+        <button class="task_button task_undone_button task_display_button" onclick = "task_undone('{{id}}');">
+          <i class="fa fa-undo"></i>
+        </button>
+        <button class="task_button task_delete_button task_display_button" onclick = "task_delete('{{id}}');">
+          <i class="fa fa-trash"></i>
+        </button>
+      </div>
+    </template>
+  </div>
+  </body>
+</html>

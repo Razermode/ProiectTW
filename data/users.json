@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "email": "john.doe@example.com",
+    "password": "secret-01",
+    "name": "John Doe",
+    "admin": 0,
+    "auth": "b84ef93375068e5bcbe5e23d1ba17a5710e0ae5b"
+  },
+  {
+    "id": 2,
+    "email": "marion.doe@example.com",
+    "password": "secret-03",
+    "name": "Marion Doe",
+    "admin": 0,
+    "auth": "aaada94ad9d2ca839d684ad72a6c4d4fa5f0607e"
+  },
+  {
+    "id": 3,
+    "email": "super.doe@example.com",
+    "password": "secret-03",
+    "name": "Super Doe",
+    "admin": 1,
+    "auth": "7d8b53d4b3aa7accbdcc37bac5227bc21ffe8cda"
+  }
+]
