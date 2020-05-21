@@ -329,7 +329,6 @@ function isValidDate(dateString)
 
     // Parse the date parts to integers
     var parts   = dateString.split("-");
-    console.log(parts);
     var day     = parseInt(parts[2], 10);
     var month   = parseInt(parts[1], 10);
     var year    = parseInt(parts[0], 10);
