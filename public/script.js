@@ -8,7 +8,13 @@ let API = {
     'finishedTasksContainer': 'finishedTasks'
 };
 
-function init() {
+function init(skipEvents) {
+    if(!skipEvents) {
+        newTaskButton = document.getElementById('task_new').querySelector('button');
+        newTaskButton.addEventListener('click', function() {
+            task_add(newTaskButton.parentNode);
+        });
+    }
     checkLogin();
     if (API.user.auth) {
         getTasks();
@@ -257,7 +263,7 @@ function login(container) {
             } else {
                 API.user.auth = user.auth;
                 API.user.name = user.name;
-                init();
+                init(true);
             }
         }
     };
