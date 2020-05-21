@@ -12,13 +12,12 @@ class UserDispatcher implements DispatcherInterface
     /**
      * @param Request $request
      * @param Response $response
-     * @return ActionInterface
      * @throws ApiException
      */
-    public function dispatch(Request $request, Response $response)  : ActionInterface
+    public function dispatch(Request $request, Response $response) 
     {
         $method = $request->getRequestMethod();
-        $actionObj = null;
+        /** @var ActionInterface $actionObj */
         switch ($method) {
             case 'POST':
                 $requestUriParts = $request->getRequestURIParts();
@@ -37,6 +36,6 @@ class UserDispatcher implements DispatcherInterface
             default:
                 throw new ApiException("[$method] method not implemented");
         }
-        return $actionObj;
+        $actionObj->execute();
     }
 }

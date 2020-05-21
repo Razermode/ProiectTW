@@ -1,12 +1,11 @@
 <?php
 namespace Api\Action\User;
 
-use Api\Action\User\User as UserAction;
+use Api\Action\UserAbstract;
 use Api\Exception\Exception as ApiException;
-use Api\Exception\Unauthorized as UnauthorizedException;
 use Api\Exception\Validation as ValidationException;
 
-class Login extends UserAction {
+class Login extends UserAbstract {
     
     /**
      * @throws ApiException
@@ -35,7 +34,7 @@ class Login extends UserAction {
             }
         }
         if (!$return) {
-            throw new UnauthorizedException();
+            throw new ValidationException("Invalid email and/or password!");
         }
         $this->response
             ->setHttpResponseCode(200)

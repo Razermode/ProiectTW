@@ -1,11 +1,11 @@
 <?php
 namespace Api\Action\Task;
 
-use Api\Action\Task\Task as TaskAction;
+use Api\Action\TaskAbstract;
 use Api\Exception\Exception as ApiException;
 use Api\Exception\NotFound as NotFoundException;
 
-class Read extends TaskAction {
+class Read extends TaskAbstract {
     
     /**
      * @throws ApiException

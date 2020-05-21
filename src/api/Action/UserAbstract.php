@@ -1,11 +1,10 @@
 <?php
-namespace Api\Action\Task;
+namespace Api\Action;
 
-use Api\Action\ActionAbstract;
 use Api\Exception\Exception as ApiException;
-use Api\Model\Task as TaskModel;
+use Api\Model\User as UserModel;
 
-abstract class Task extends ActionAbstract
+abstract class UserAbstract extends ActionAbstract
 {
     /**
      * @param int $id
@@ -14,7 +13,7 @@ abstract class Task extends ActionAbstract
      */
     protected function loadData($id = null)
     {
-        return TaskModel::getInstance()->loadData($id);
+        return UserModel::getInstance()->loadData($id);
     }
     
     /**
@@ -23,6 +22,6 @@ abstract class Task extends ActionAbstract
      */
     protected function saveData($data)
     {
-        TaskModel::getInstance()->saveData($data);
+        UserModel::getInstance()->saveData($data);
     }
 }

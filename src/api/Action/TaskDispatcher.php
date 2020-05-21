@@ -15,36 +15,34 @@ class TaskDispatcher implements DispatcherInterface {
     /**
      * @param Request $request
      * @param Response $response
-     * @return ActionInterface
      * @throws ApiException
      */
-    public function dispatch(Request $request, Response $response) : ActionInterface
+    public function dispatch(Request $request, Response $response)
     {
         $requestUriParts = $request->getRequestURIParts();
         $id = $requestUriParts[1] ?? 0;
         $method = $request->getRequestMethod();
-        $action = null;
-
+        /** @var ActionInterface $actionObj */
         switch ($method) {
             case 'GET':
                 if ($id) {
-                    $action = new Read($request, $response);
+                    $actionObj = new Read($request, $response);
                 } else {
-                    $action = new GetList($request, $response);
+                    $actionObj = new GetList($request, $response);
                 }
                 break;
             case 'POST':
-                $action = new Create($request, $response);
+                $actionObj = new Create($request, $response);
                 break;
             case 'DELETE':
-                $action = new Delete($request, $response);
+                $actionObj = new Delete($request, $response);
                 break;
             case 'PUT':
-                $action = new Update($request, $response);
+                $actionObj = new Update($request, $response);
                 break;
             default:
                 throw new ApiException("[$method] not implemented");
         }
-        return $action;
+        $actionObj->execute();
     }
 }

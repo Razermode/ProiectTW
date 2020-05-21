@@ -1,14 +1,14 @@
 <?php
 namespace Api\Action\Task;
 
-use Api\Action\Task\Task as TaskAction;
+use Api\Action\TaskAbstract;
 use Api\Exception\Exception as ApiException;
 use Api\Exception\Forbidden;
 use Api\Exception\NotFound as NotFoundException;
 use Api\Exception\Unauthorized as UnauthorizedException;
 use Api\Exception\Validation;
 
-class Update extends TaskAction
+class Update extends TaskAbstract
 {
     /**
      * @throws ApiException
