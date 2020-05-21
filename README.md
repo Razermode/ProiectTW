@@ -65,8 +65,8 @@ element.classList.remove("editable");
 ```
 Folosirea evenimentelor JavaScript declansate de mouse/tastatura (1 punct) 
 ```html
- <button class="task_button task_done_button task_display_button" onclick = "task_done('{{id}}');">
-<button class="task_button task_edit_button task_display_button" onclick = "task_edit('{{id}}');">
+newTaskButton = document.getElementById('task_new').querySelector('button');
+        newTaskButton.addEventListener('click', function()
 ```
 
  Utilizarea [AJAX](https://www.w3schools.com/xml/ajax_intro.asp) ([GET, POST, PUT, DELETE](http://www.restapitutorial.com/lessons/httpmethods.html)) (4 puncte) ✔️
