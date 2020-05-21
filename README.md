@@ -2,7 +2,8 @@
 
 Simple editable task-list that also keeps track of your finished tasks.
 
-** Criterii de acceptanta: **
+### Criterii de acceptanta: 
+
 Aplicatia sa fie [Single Page Application](https://en.wikipedia.org/wiki/Single-page_application) ✔️
 Codul sursa (nearhivat) al proiectului trebuie sa fie salvat pe [GitHub](https://github.com/) ✔️
 nu puteti folosi librarii, framework-uri [CSS](https://en.wikipedia.org/wiki/CSS_framework) sau [JavaScript](https://en.wikipedia.org/wiki/JavaScript_framework) (cum ar fi jQuery, Bootstrap, Angular, React, etc) pentru realizarea frontend-ului ✔️
