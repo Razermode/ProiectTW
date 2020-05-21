@@ -139,9 +139,6 @@ function task_done(id) {
     sendUpdate(id, ['status=finished']);
 }
 function task_save(id) {
-    if(!confirm('Are you sure you want to keep the changes?')){
-        return;
-    }
     let container = document.getElementById("task" + id);
     let editableElements = container.querySelectorAll("[contenteditable=true]");
     data = [];
@@ -165,6 +162,9 @@ function task_save(id) {
     if(err.length) {
         alert(err.join("\n"));
         return null;
+    }
+    if(!confirm('Are you sure you want to keep the changes?')){
+        return;
     }
     sendUpdate(id, data);
     editable(id, false);
